@@ -20,12 +20,6 @@ class Solution {
                 case 'M': num = 1000;
                 break;
             }
-            // if(4*num<res){
-            //     res -= num;
-            // }
-            // else{
-            //     res += num;
-            // }
             if(num<prev){
                 res -= num;
             }
