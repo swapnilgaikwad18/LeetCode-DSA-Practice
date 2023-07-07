@@ -2,6 +2,7 @@ class Solution {
     public int romanToInt(String s) {
         int res = 0;
         int num = 0;
+        int prev = 0;
         for(int i=s.length()-1;i>=0;i--){
             switch(s.charAt(i)){
                 case 'I': num = 1;
@@ -19,12 +20,13 @@ class Solution {
                 case 'M': num = 1000;
                 break;
             }
-            if(4*num < res){
+            if(num<prev){
                 res -= num;
             }
             else{
                 res += num;
             }
+            prev = num;
         }
         return res;
     }
