@@ -55,23 +55,17 @@ class Solution
     //Function to find maximum of each subarray of size k.
     static ArrayList <Integer> max_of_subarrays(int arr[], int n, int k)
     {
-        ArrayList<Integer> maxElementSubArrays = new ArrayList<>();
-
-        int maxSubArray;
-
-        for (int i = 0; i <= n - k; i++)
-            {
-                maxSubArray = arr[i];
-
-                for (int j = i + 1; j <= i + k - 1; j++ )
-                    {       
-                        if (arr[j] > maxSubArray)
-                        {
-                            maxSubArray = arr[j];
-                        }
-                    }
-                        maxElementSubArrays.add(maxSubArray);
+        ArrayList<Integer> al = new ArrayList<>();
+        int max;
+        for(int i=0;i<n-k+1;i++){
+            max = arr[i];
+            for(int j=i;j<=i+k-1;j++){
+                if(arr[j]>max){
+                    max = arr[j];
                 }
-        return maxElementSubArrays;
+            }
+            al.add(max);
+        }
+        return al;
     }
 }
