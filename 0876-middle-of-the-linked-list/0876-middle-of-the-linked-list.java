@@ -9,30 +9,54 @@
  * }
  */
 class Solution {
-
-    int getLength(ListNode head){
-        int count = 0;
-        while(head!=null){
-            count++;
-            head = head.next;
-        }
-        return count;
-    }
-
+    
+    //Optimized Solution
     public ListNode middleNode(ListNode head) {
-        
-        int length = getLength(head);
-        int temp = length/2;
 
-        ListNode ans = head;
-
-        int count = 0;
-        while(count<temp){
-            ans = ans.next;
-            count++;
+        if(head==null || head.next==null){
+            return head;
         }
 
-        return ans;
+        if(head.next.next==null){
+            return head.next;
+        }
+
+        ListNode slow = head;
+        ListNode fast = head.next;
+
+        while(fast!=null){
+            fast = fast.next;
+            if(fast!=null){
+                fast = fast.next;
+            }
+            slow = slow.next;
+        }
+
+        return slow;
+    } 
+
+//     int getLength(ListNode head){
+//         int count = 0;
+//         while(head!=null){
+//             count++;
+//             head = head.next;
+//         }
+//         return count;
+//     }
+
+//     public ListNode middleNode(ListNode head) {
         
-    }
+//         int length = getLength(head);
+//         int temp = length/2;
+
+//         ListNode ans = head;
+
+//         int count = 0;
+//         while(count<temp){
+//             ans = ans.next;
+//             count++;
+//         }
+
+//         return ans;
+//     }
 }
