@@ -13,27 +13,39 @@ class Solution {
     //Optimized Solution
     public ListNode middleNode(ListNode head) {
 
-        if(head==null || head.next==null){
-            return head;
+        if(head == null){
+            return null;
         }
-
-        if(head.next.next==null){
-            return head.next;
+        ListNode slowPtr = head;
+        ListNode fastPtr = head;
+        while(fastPtr!=null&&fastPtr.next!=null){
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
         }
+        return slowPtr;
 
-        ListNode slow = head;
-        ListNode fast = head.next;
+        // if(head==null || head.next==null){
+        //     return head;
+        // }
 
-        while(fast!=null){
-            fast = fast.next;
-            if(fast!=null){
-                fast = fast.next;
-            }
-            slow = slow.next;
-        }
+        // if(head.next.next==null){
+        //     return head.next;
+        // }
 
-        return slow;
+        // ListNode slow = head;
+        // ListNode fast = head.next;
+
+        // while(fast!=null){
+        //     fast = fast.next;
+        //     if(fast!=null){
+        //         fast = fast.next;
+        //     }
+        //     slow = slow.next;
+        // }
+
+        // return slow;
     } 
+
 
 //     int getLength(ListNode head){
 //         int count = 0;
