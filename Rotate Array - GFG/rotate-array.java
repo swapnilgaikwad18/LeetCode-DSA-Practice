@@ -69,11 +69,12 @@ class Solution
             temp[i] = arr[i];
         }
         
-        
+        //SHift elements ahead
         for(int i=d;i<n;i++){
             arr[i-d] = arr[i];
         }
         
+        //adding element of temp in arr
         for(int i=n-d,j=0;i<n;i++,j++){
             arr[i] = temp[j];
         }
